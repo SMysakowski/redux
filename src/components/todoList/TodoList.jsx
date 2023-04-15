@@ -1,32 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import { todosSelector, deleteTodo, toggleTodo } from "../../store/todoReducer";
+import { useGetTodosQuery } from "../../services/api";
 
 export default function TodoList() {
-  const todos = useSelector(todosSelector);
-  const dispatch = useDispatch();
-
-  const handleDelete = (id) => {
-    dispatch(deleteTodo(id));
-  };
-
-  const handleToggle = (id) => {
-    dispatch(toggleTodo(id));
-  };
+  const { data } = useGetTodosQuery();
 
   return (
     <div>
       <ul>
-        {todos.map((todo) => (
+        {data?.map((todo) => (
           <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggle(todo.id)}
-            />
-            <span>{todo.text}</span>
+            <input type="checkbox" checked={todo.completed} />
+            <span>{todo.title}</span>
             <button>
-              <span onClick={() => handleDelete(todo.id)}>-</span>
+              <span>-</span>
             </button>
           </li>
         ))}
