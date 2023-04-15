@@ -1,32 +1,12 @@
-import { useState } from "react";
+import useCounterStore from "../../store/zustand";
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
-
-  const obj = {
-    a: 1,
-    b: 2,
-    c: {
-      d: 1,
-    },
-  };
-
-  const obj2 = {
-    ...obj,
-    c: {
-      ...obj.c,
-      d: 2,
-    },
-  };
-
-  console.log("obj1", obj);
-  console.log(obj2);
-
+  const { count, increment, decrement } = useCounterStore((state) => state);
   return (
     <div>
       <h1>Counter</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <button onClick={() => increment()}>Increment</button>
+      <button onClick={() => decrement()}>Decrement</button>
       <p>{count}</p>
     </div>
   );
