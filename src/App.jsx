@@ -1,12 +1,14 @@
 import UserProvider from "./providers/UserProvider";
 import Layout from "./components/layout/Layout";
 
+import Counter from "./components/counter/Counter";
+
 function App() {
   return (
     <UserProvider>
       <div className="App">
         <Layout>
-          <h1>Hello Props Drilling</h1>
+          <Counter />
         </Layout>
       </div>
     </UserProvider>
