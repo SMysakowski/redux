@@ -1,0 +1,11 @@
+
+1. Stwórz aplikację quizową z wykorzystaniem Redux. Aplikacja powinna wyświetlać listę pytań i pozwalać użytkownikom na wybór odpowiedzi. Stan quizu (w tym bieżące pytanie, odpowiedzi użytkownika i wynik) powinien być przechowywany w storze Redux, a widok powinien być aktualizowany, aby odzwierciedlić aktualny stan quizu.
+2. Zbuduj aplikację koszyka na zakupy z wykorzystaniem Reduxa. Aplikacja powinna umożliwiać użytkownikom dodawanie przedmiotów do koszyka, aktualizację ilości przedmiotów w koszyku oraz usuwanie przedmiotów z koszyka. Stan koszyka (w tym lista przedmiotów i ich ilości) powinien być przechowywany w store Reduxa, a widok powinien być aktualizowany, aby odzwierciedlić aktualny stan koszyka.
+
+
+1. Wygeneruj projekt z Vite
+2. Zainstaluj Depsy Reduxowe
+3. Skonfiguruj store
+4. Stworz reducera
+5. Pamietaj o Providerze Reduxowym
+6. Wykorzystaj useSelector i useDispatch do wyciagniecia / modyfikacji danych

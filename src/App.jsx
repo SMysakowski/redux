@@ -1,25 +1,20 @@
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
 
-import UserProvider from "./providers/UserProvider";
 import Layout from "./components/layout/Layout";
 
-import TodoList from "./components/todoList/TodoList";
-import TodoForm from "./components/todoForm/TodoForm";
+import { selectQuizById } from "./store/quizReducer";
 
-import store from "./store/store";
+import QuizForm from "./quiz/components/QuizForm";
 
 function App() {
+  const activeQuiz = useSelector((state) => selectQuizById(state, 1));
+
   return (
-    <Provider store={store}>
-      <UserProvider>
-        <div className="App">
-          <Layout>
-            <TodoList />
-            <TodoForm />
-          </Layout>
-        </div>
-      </UserProvider>
-    </Provider>
+    <div className="App">
+      <Layout>
+        <QuizForm data={activeQuiz} />
+      </Layout>
+    </div>
   );
 }
 

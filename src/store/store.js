@@ -1,16 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
 
-import { todoApi } from "../services/api";
+import quizReducer, { quizSlice } from "./quizReducer";
+import answersHistoryReducer, { answersHistorySlice } from "./answersHistory";
 
 const store = configureStore({
   reducer: {
-    [todoApi.reducerPath]: todoApi.reducer,
+    [quizSlice.name]: quizReducer,
+    [answersHistorySlice.name]: answersHistoryReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(todoApi.middleware),
 });
-
-setupListeners(store.dispatch);
 
 export default store;
